@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #  ERA.py
 #  EVEOnline Ratting Assistant
-#  
+#
 #  AFK away and listen for a ding.
 #
 #  Written in python for you Alex....
@@ -32,6 +32,9 @@ import os
 import platform
 import logging
 from utils import EVEDir
+from universe import Universe
+from intelmap import IntelMap
+from settingsdialog import SettingsDialog
 
 # Do initial checks, code taken from Pyfa... cause that shit rocks
 if sys.version_info < (2,6) or sys.version_info > (3,0):
@@ -61,7 +64,7 @@ import wx
 import wx.media
 
 # set a version
-ver = "1.0.3"
+ver = "1.1.0b"
 
 ID_HOSTILE_START = wx.NewId()
 ID_LOOT_START = wx.NewId()
@@ -97,28 +100,35 @@ class era(wx.Frame):
 
 		# Create the main window with the title ERA <version number>
 		#wx.Frame.__init__(self,parent,id,'ERA %s' % ver, size=(800,340), style = wx.DEFAULT_FRAME_STYLE & ~ (wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
-		wx.Frame.__init__(self,parent,id,'ERA %s' % ver, size=(800,365), style = wx.DEFAULT_FRAME_STYLE)
+		wx.Frame.__init__(self,parent,id,'ERA %s' % ver, size=(800,360), style = wx.DEFAULT_FRAME_STYLE)
 
 		menubar = wx.MenuBar()
 		fileMenu = wx.Menu()
 		settingsMenu = wx.Menu()
 
 		fitem = fileMenu.Append(wx.ID_EXIT, 'Quit', 'Quit ERA')
-        
-		self.debug = settingsMenu.Append(wx.ID_ANY, 'Enable Debugging', 
+
+		self.debug = settingsMenu.Append(wx.ID_ANY, 'Enable Debugging',
 			'Enable Debugging', kind=wx.ITEM_CHECK)
-            
 		settingsMenu.Check(self.debug.GetId(), False)
+
+		show_settings_menu = settingsMenu.Append(wx.ID_ANY, 'Settings')
 
 		self.Bind(wx.EVT_MENU, self.Close, fitem)
 		self.Bind(wx.EVT_MENU, self.toggle_debug, self.debug)
+		self.Bind(wx.EVT_MENU, self.show_settings, show_settings_menu)
 
 		menubar.Append(fileMenu, '&File')
 		menubar.Append(settingsMenu, '&Settings')
 		self.SetMenuBar(menubar)
 
-		self.toolbar = self.CreateToolBar()
-		self.toolbar.Realize()
+		#self.toolbar = self.CreateToolBar()
+		#self.toolbar.Realize()
+
+		# Load settings
+		dialog = SettingsDialog(self)
+		era.settings = dialog.get_settings()
+		dialog.Destroy()
 
 		#
 		self.Bind(wx.EVT_CLOSE, self.Close)
@@ -126,45 +136,71 @@ class era(wx.Frame):
 		# Create a panel in the windows
 		self.panel = wx.Panel(self)
 
+		input_sizer = wx.BoxSizer(wx.HORIZONTAL)
+
 		# Setup logging early so we see it in the panel
-		logbox = wx.TextCtrl(self.panel, wx.ID_ANY, size = (780, 290), pos = (10,40), style = wx.TE_MULTILINE | wx.TE_READONLY | wx.HSCROLL)
+		logbox = wx.TextCtrl(self.panel, wx.ID_ANY, size = (470, 360), style = wx.TE_MULTILINE | wx.TE_READONLY)
 
 		# Redirect all printed messages to the panel
 		redir = RedirectText(logbox)
 		sys.stdout = redir
 		sys.stderr = redir
 
-		# Create a start and stop button
-		self.hostile_watch = wx.ToggleButton(self.panel, ID_HOSTILE_START, label="Hostile Watch", pos=(530,10), size=(95,25))
-		self.loot_watch = wx.ToggleButton(self.panel, ID_LOOT_START, label="Loot Watch", pos=(10, 10), size=(90,25))
+		# Create a start and stop button for the loot watch
+		self.loot_watch = wx.ToggleButton(self.panel, ID_LOOT_START, label="Loot Watch", size=(90,25))
+		input_sizer.Add(self.loot_watch, proportion=0, flag=wx.ALIGN_CENTER_VERTICAL)
 
 		# Define regions we have systems for in a list
-		region_list = [ 'dek', 'brn', 'ftn', 'fade', 'tnl', 'tri', 'vnl', 'vale', 'cr' ]
+		#region_list = [ 'dek', 'brn', 'ftn', 'fade', 'tnl', 'tri', 'vnl', 'vale', 'cr' ]
+		region_list = [ 'dek' ]
 		# Create text "Region" before the dropdown box
-		wx.StaticText(self.panel, -1, 'Region', (105,15))
+		input_sizer.Add(wx.StaticText(self.panel, wx.ID_ANY, 'Region'), proportion=0, flag=wx.ALIGN_CENTER_VERTICAL | wx.LEFT, border=8)
 
 		# Create the dropdown box and use DEK as a default selection
-		era.region_select = wx.ComboBox(self.panel, -1, pos=(150,10), size=(75,25), choices = region_list, style=wx.CB_DROPDOWN)
+		era.region_select = wx.ComboBox(self.panel, wx.ID_ANY, choices = region_list, style=wx.CB_DROPDOWN)
 		era.region_select.SetSelection(0)
+		input_sizer.Add(era.region_select, proportion=0, flag=wx.ALIGN_CENTER_VERTICAL)
 
-		# Load triggers from json courtesty of Orestus, Narex Vivari for adding auto complete. 
-		self.load_region(era.region_select.GetValue());
+		# Load triggers from json courtesty of Orestus, Narex Vivari for adding auto complete.
+		era.universe = Universe(era_dir)
+		era.universe.load()
+		self.region_selection_changed(None)
 		era.region_select.Bind(wx.EVT_COMBOBOX, self.region_selection_changed, era.region_select)
 
-		#Create the system input box
-		wx.StaticText(self.panel, -1, 'System', (230, 15))
-		era.system_select = wx.TextCtrl(self.panel, -1, '', pos=(280,10), size=(120,-1))
+		# Create the system input box
+		input_sizer.Add(wx.StaticText(self.panel, wx.ID_ANY, 'System'), proportion=0, flag=wx.ALIGN_CENTER_VERTICAL | wx.LEFT, border=8)
+		era.system_select = wx.TextCtrl(self.panel, wx.ID_ANY, '', size=(120,-1))
 		era.system_select.Bind(wx.EVT_TEXT, self.system_text_changed, era.system_select)
+		input_sizer.Add(era.system_select, proportion=0, flag=wx.ALIGN_CENTER_VERTICAL)
 
 		# Create the range input box
-		range_list = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ]
-		wx.StaticText(self.panel, -1, 'Range', (410, 15))
-		era.range_select = wx.ComboBox(self.panel, -1, '', pos=(450,10), size=(80,25), choices = range_list, style=wx.CB_DROPDOWN)
-		era.range_select.SetSelection(5)
+		range_list = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20' ]
+		input_sizer.Add(wx.StaticText(self.panel, wx.ID_ANY, 'Range'), proportion=0, flag=wx.ALIGN_CENTER_VERTICAL | wx.LEFT, border=8)
+		era.range_select = wx.ComboBox(self.panel, wx.ID_ANY, '', choices = range_list, style=wx.CB_DROPDOWN)
+		era.range_select.SetSelection(15)
+		input_sizer.Add(era.range_select, proportion=0, flag=wx.ALIGN_CENTER_VERTICAL)
+
+		# Create a start and stop button for the hostile watch
+		self.hostile_watch = wx.ToggleButton(self.panel, ID_HOSTILE_START, label="Hostile Watch", size=(95,25))
+		input_sizer.Add(self.hostile_watch, flag=wx.ALIGN_CENTER_VERTICAL | wx.LEFT, border=4)
 
 		# Bind button clicks to events (start|stop)
 		self.Bind(wx.EVT_TOGGLEBUTTON, self.hostile_run, id=ID_HOSTILE_START)
 		self.Bind(wx.EVT_TOGGLEBUTTON, self.loot_run, id=ID_LOOT_START)
+
+		# Visual intel map
+		era.intel_map = IntelMap(era.universe, self.panel, era.settings)
+
+		# Main area layout
+		main_sizer = wx.BoxSizer(wx.HORIZONTAL)
+		main_sizer.Add(logbox, proportion=0, flag=wx.EXPAND | wx.TOP | wx.BOTTOM, border=8)
+		main_sizer.Add(era.intel_map.map_panel, proportion=1, flag=wx.EXPAND | wx.ALL, border=8)
+
+		# App layout
+		app_sizer = wx.BoxSizer(wx.VERTICAL)
+		app_sizer.Add(input_sizer, proportion=0, flag=wx.TOP | wx.LEFT, border=8)
+		app_sizer.Add(main_sizer, proportion=1, flag=wx.EXPAND | wx.LEFT, border=8)
+		self.panel.SetSizer(app_sizer)
 
 		# Set a watch variable to check later.  If we want the process to stop, self.watch becomes 1
 		self.hostile_watcher = None
@@ -175,8 +211,18 @@ class era(wx.Frame):
 		# Shameless self adversiting
 		print "EVEOnline Ratting Assistant v%s by QQHeresATissue" % ver
 
+	def show_settings(self, event):
+		size = wx.Size(300,260)
+		pos = self.panel.ClientToScreen((0,0)) + (self.panel.Rect.Width / 2 - size.width / 2, self.panel.Rect.Height / 2 - size.height / 2)
+		dialog = SettingsDialog(self, wx.ID_ANY, 'Settings', size=size, pos=pos)
+		res = dialog.ShowModal()
+		if res == wx.ID_OK:
+			era.settings = dialog.get_settings()
+			self.intel_map.update_settings(era.settings)
+		dialog.Destroy()
+
 	def region_selection_changed(self, event):
-		self.load_region(era.region_select.GetValue())
+		era.universe.change_region(era.universe.region_short_name_to_id(era.region_select.GetValue()))
 
 	def system_text_changed(self, event):
 		if which_os == "Linux":
@@ -185,23 +231,12 @@ class era(wx.Frame):
 			caret = era.system_select.GetInsertionPoint()
 
 		partial = era.system_select.GetValue()[:caret]
-		match = self.match_partial_system(partial)
+		match = era.universe.match_partial_system(partial)
 		if match != None and len(partial) > 0:
 			era.system_select.ChangeValue(match)
 		else:
 			era.system_select.ChangeValue(partial)
 		era.system_select.SetInsertionPoint(caret)
-
-	def match_partial_system(self, text):
-		for system in era.current_region:
-			if system['name'].startswith(text):
-				return system['name']
-		return None
-
-	def load_region(self, region):
-		json_data = open(os.path.join( era_dir, "regions", "%s.json" % str(region)))
-		era.current_region = json.load(json_data)
-		json_data.close()
 
 	# Setup a functions to start the watcher thread
 	def hostile_run(self, event):
@@ -213,7 +248,7 @@ class era(wx.Frame):
 			# abort the thread
 			self.hostile_watcher.abort()
 			# set back to None so we can start it again
-			self.hostile_watcher = None			
+			self.hostile_watcher = None
 
 	def loot_run(self, event):
 		if not self.loot_watcher:
@@ -227,6 +262,7 @@ class era(wx.Frame):
 			self.loot_watcher = None
 
 	def Close(self, event):
+		era.intel_map.Destroy()
 		self.Destroy()
 
 	#def get_clients(self, event):
@@ -250,10 +286,12 @@ class StartHOSTILE(Thread):
 		self.threadID = threadID
 		self._want_abort = 0
 		self.start()
+		era.intel_map.start_updating()
 
 	def abort(self):
 		print "Called to stop"
 		self._want_abort = 1
+		era.intel_map.stop_updating()
 
 	# setup our log file watcher, only open it once and update when a new line is written
 	def hostile_watch(self, logfile):
@@ -265,7 +303,7 @@ class StartHOSTILE(Thread):
 			new = re.sub(r'[^\x20-\x7e]', '', fp.readline())
 
 			if new:
-				relevant_system = self.find_system_in_string(new)
+				relevant_system = era.universe.find_system_in_string(new)
 				if relevant_system:
 					yield (relevant_system, new)
 			else:
@@ -282,6 +320,7 @@ class StartHOSTILE(Thread):
 		region = era.region_select.GetValue()
 		# get the system based on our system input
 		system = era.system_select.GetValue()
+		era.intel_map.set_origin(system, int(era.range_select.GetValue()))
 
 		# select identified logs and sort by date
 		hostile_tmp = sorted([ f for f in os.listdir(hostile_logdir) if f.startswith("%s.imperium" % str(region))])
@@ -313,7 +352,7 @@ class StartHOSTILE(Thread):
 			if not any(status_word in hostile_hit_sentence for status_word in status_words):
 
 				# find distance to the reported system
-				distance = self.find_system_distance(system, related_system, int(era.range_select.GetValue()))
+				distance = era.universe.find_system_distance(system, related_system, int(era.range_select.GetValue()))
 				if distance != None:
 
 					# get the current time for each event
@@ -331,59 +370,33 @@ class StartHOSTILE(Thread):
 						print "%r (%s jumps)\n" % (hostile_hit_sentence, distance)
 						wx.Yield()
 
+					era.intel_map.ping(related_system)
+
 					# play a tone to get attention, only if its recent!
 					if utc in hostile_hit_sentence:
+						sound_file = self.hostile_sound_for_distance(distance)
+						if sound_file != None:
+							if which_os == "Linux":
+								os.system("aplay -q %r" % sound_file)
 
-						if which_os == "Linux":
-							os.system("aplay -q %r" % hostile_sound)
+							elif which_os == "Windows":
+								winsound.PlaySound("%s" % sound_file,SND_FILENAME)
 
-						elif which_os == "Windows":
-							winsound.PlaySound("%s" % hostile_sound,SND_FILENAME)
+							elif which_os == "Darwin":
+								print('\a')
+								print('\a')
+								print('\a')
 
-						elif which_os == "Darwin":
-							print('\a')
-							print('\a')
-							print('\a')
-
-	def find_system_in_string(self, string):
-		for system in era.current_region:
-			if system['name'] in string:
-				return system['name']
-
+	def hostile_sound_for_distance(self, distance):
+		if distance <= 5:
+			if era.settings['close_range_sound'] == 'Voice':
+				return os.path.join( era_dir, "sounds", "hostile_dist_%d.wav" % distance)
+			elif era.settings['close_range_sound'] == 'Default':
+				return hostile_sound
+		else:
+			if era.settings['long_range_sound'] == 'Default':
+				return hostile_sound
 		return None
-
-	def find_system_distance(self, start_system, dest_system, range):
-		routes_found = []
-		# find the distance of all routes from start system to destination system
-		self.system_distance_recursive(start_system, dest_system, 0, range, [], routes_found)
-		# return shortest path
-		return min(routes_found) if len(routes_found) else None
-
-	def system_distance_recursive(self, cur_system, dest_system, distance, range, checked, routes_found):
-		# exit if out of range or system is already checked
-		if distance > range or cur_system in checked:
-			return
-
-		if cur_system == dest_system:
-			# destination found, so we don't need to check further connections
-			routes_found.append(distance)
-			return
-
-		for connected_system in self.get_connected_systems(cur_system):
-			# duplicate existing path and append this system
-			now_checked = list(checked)
-			now_checked.append(cur_system)
-			# recursively find distance, if a path exists
-			conn_dist = self.system_distance_recursive(connected_system, dest_system, distance + 1, range, now_checked, routes_found)
-			if conn_dist >= 0:
-				# this system is parth of a path to destination, so add the distance
-				routes_found.append(conn_dist)
-
-	def get_connected_systems(self, system):
-		# find the system and return its connections. can easily be optimized using a dict if performance is an issue (which it shouldn't be when only checking regions)
-		system_data = [x['connections'] for x in era.current_region if x['name'] == system]
-		# connections across regions exist in the data, but are currently not supported. but people probably don't report cross-region intel anyway
-		return system_data[0] if len(system_data) > 0 else []
 
 # Define LOOT watcher thread
 class StartLOOT(Thread):
@@ -519,6 +532,6 @@ class StartLOOT(Thread):
 
 if __name__ == '__main__':
 	app=wx.App()
-	frame=era(parent=None,id=-1)
+	frame=era(parent=None,id=wx.ID_ANY)
 	frame.Show()
 	app.MainLoop()
