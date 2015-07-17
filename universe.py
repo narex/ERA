@@ -6,7 +6,6 @@ class Universe:
 		self.systems = []
 		self.jumps = []
 		self.era_dir = era_dir
-		self.current_region = 0
 		self.current_systems = []
 		self.current_jumps = []
 
@@ -18,14 +17,12 @@ class Universe:
 		self.jumps = json.load(json_data)
 		json_data.close()
 
-	def change_region(self, region):
-		self.current_region = region
-		self.current_systems = [x for x in self.systems if x['regionID'] == region]
-		self.current_jumps = [x for x in self.jumps if x['fromRegionID'] == region and x['toRegionID'] == region]
+	def change_region(self, regions):
+		self.current_systems = [x for x in self.systems if x['regionID'] in regions]
+		self.current_jumps = [x for x in self.jumps if x['fromRegionID'] in regions and x['toRegionID'] in regions]
 
-	def region_short_name_to_id(self, name):
-		return { 'brn': 10000055, 'dek': 10000035, 'fade': 10000046, 'ftn': 10000058, 'tnl': 10000045, 'tri': 10000010, 'vale': 10000003, 'vnl': 10000015 }[name]
-		#fade, pure blind (10000046, 10000023)
+	def region_short_name_to_ids(self, name):
+		return { 'brn': [10000055], 'dek': [10000035], 'fade': [10000046, 10000023], 'ftn': [10000058], 'tnl': [10000045], 'tri': [10000010], 'vale': [10000003], 'vnl': [10000015], 'fade-only': [10000046], 'pb-only': [10000023] }[name]
 
 	def match_partial_system(self, text):
 		for system in self.current_systems:

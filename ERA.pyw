@@ -64,7 +64,7 @@ import wx
 import wx.media
 
 # set a version
-ver = "1.1.0b"
+ver = "1.1.1b"
 
 ID_HOSTILE_START = wx.NewId()
 ID_LOOT_START = wx.NewId()
@@ -151,8 +151,7 @@ class era(wx.Frame):
 		input_sizer.Add(self.loot_watch, proportion=0, flag=wx.ALIGN_CENTER_VERTICAL)
 
 		# Define regions we have systems for in a list
-		#region_list = [ 'dek', 'brn', 'ftn', 'fade', 'tnl', 'tri', 'vnl', 'vale', 'cr' ]
-		region_list = [ 'dek' ]
+		region_list = [ 'dek', 'fade' ] #, 'brn', 'ftn', 'tnl', 'tri', 'vnl', 'vale', 'cr' ]
 		# Create text "Region" before the dropdown box
 		input_sizer.Add(wx.StaticText(self.panel, wx.ID_ANY, 'Region'), proportion=0, flag=wx.ALIGN_CENTER_VERTICAL | wx.LEFT, border=8)
 
@@ -174,10 +173,10 @@ class era(wx.Frame):
 		input_sizer.Add(era.system_select, proportion=0, flag=wx.ALIGN_CENTER_VERTICAL)
 
 		# Create the range input box
-		range_list = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20' ]
+		range_list = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30' ]
 		input_sizer.Add(wx.StaticText(self.panel, wx.ID_ANY, 'Range'), proportion=0, flag=wx.ALIGN_CENTER_VERTICAL | wx.LEFT, border=8)
 		era.range_select = wx.ComboBox(self.panel, wx.ID_ANY, '', choices = range_list, style=wx.CB_DROPDOWN)
-		era.range_select.SetSelection(15)
+		era.range_select.SetSelection(10)
 		input_sizer.Add(era.range_select, proportion=0, flag=wx.ALIGN_CENTER_VERTICAL)
 
 		# Create a start and stop button for the hostile watch
@@ -222,7 +221,7 @@ class era(wx.Frame):
 		dialog.Destroy()
 
 	def region_selection_changed(self, event):
-		era.universe.change_region(era.universe.region_short_name_to_id(era.region_select.GetValue()))
+		era.universe.change_region(era.universe.region_short_name_to_ids(era.region_select.GetValue()))
 
 	def system_text_changed(self, event):
 		if which_os == "Linux":

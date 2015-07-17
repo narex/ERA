@@ -32,7 +32,7 @@ class SettingsDialog(wx.Dialog):
 		grid_sizer = wx.FlexGridSizer(2, 2, 4, 4)
 
 		grid_sizer.Add(wx.StaticText(self.panel, wx.ID_ANY, 'Close Range Sound'), proportion=0, flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL)
-		self.close_range_sound_select = wx.ComboBox(self.panel, size=(100,25), choices=['Default', 'Voice'], style=wx.CB_READONLY)
+		self.close_range_sound_select = wx.ComboBox(self.panel, size=(100,25), choices=['Default', 'Voice', 'None'], style=wx.CB_READONLY)
 		self.close_range_sound_select.SetValue(self.settings['close_range_sound'])
 		grid_sizer.Add(self.close_range_sound_select, proportion=0)
 

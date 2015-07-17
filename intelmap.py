@@ -10,6 +10,7 @@ class IntelMap:
 		self.update_timer = None
 		self.origin_system = None
 		self.range = 0
+		self.current_sub_map = []
 		self.pings = []
 
 		self.map_region = None
@@ -20,10 +21,13 @@ class IntelMap:
 		self.map_panel.Bind(wx.EVT_SIZE, self.resized)
 
 		# Appearance
-		self.system_size = wx.Point(50, 14)
+		self.system_size = wx.Point2D(50, 14)
+		self.map_scale = wx.Point2D(1, 1)
 		self.system_font_size = 8
 		self.connection_color = 'blue'
 		self.connection_thickness = 1
+		self.connection_color_regional = 'green'
+		self.connection_thickness_regional = 2
 		self.system_border_color = (100, 100, 100)
 		self.default_system_color = (230, 230, 230)
 		self.origin_system_color = (140, 200, 255)
@@ -36,7 +40,7 @@ class IntelMap:
 	def update_settings(self, settings):
 		self.update_interval = settings['update_interval']
 		self.ping_duration = settings['ping_duration']
-		self.system_spacing = wx.Point(settings['system_spacing'], settings['system_spacing'])
+		self.system_spacing = wx.Point2D(settings['system_spacing'], settings['system_spacing'])
 		self.redraw()
 		if self.update_timer != None:
 			self.stop_updating()
@@ -77,12 +81,10 @@ class IntelMap:
 			dc = wx.PaintDC(self.map_panel)
 			dc.BeginDrawing()
 
-			sub_map = self.get_sub_map(self.origin_system, self.range, [], [])
-
-			map_center = wx.Point(self.origin_system[self.axis1], self.origin_system[self.axis2])
+			map_center = wx.Point2D(self.origin_system[self.axis1], self.origin_system[self.axis2])
 
 			connections_drawn = []
-			for system_map in sub_map:
+			for system_map in self.current_sub_map:
 				for connected_system_data in system_map['connections']:
 					sys_names = sorted([system_map['system']['solarSystemName'], connected_system_data['solarSystemName']])
 					conn_key = "%s_%s" % (sys_names[0], sys_names[1])
@@ -90,10 +92,11 @@ class IntelMap:
 						connections_drawn.append(conn_key)
 						self.draw_connection(dc, map_center, system_map['system'], connected_system_data)
 
-			for system_map in sub_map:
-				self.draw_system(dc, map_center, system_map['system'])
+			systems_drawn = []
+			for system_map in self.current_sub_map:
+				self.draw_system(dc, map_center, system_map['system'], systems_drawn)
 				for connected_system_data in system_map['connections']:
-					self.draw_system(dc, map_center, connected_system_data)
+					self.draw_system(dc, map_center, connected_system_data, systems_drawn)
 
 			dc.EndDrawing()
 			del dc
@@ -111,7 +114,7 @@ class IntelMap:
 	def convert_pos(self, map_center, system_data):
 		delta_x, delta_y = system_data[self.axis1] - map_center.x, map_center.y - system_data[self.axis2]
 
-		return wx.Point(delta_x * (self.system_size.x + self.system_spacing.x), delta_y * (self.system_size.y + self.system_spacing.y))
+		return wx.Point2D(delta_x * (self.system_size.x + self.system_spacing.x) * self.map_scale.x, delta_y * (self.system_size.y + self.system_spacing.y) * self.map_scale.y)
 
 	def draw_connection(self, dc, map_center, system1_data, system2_data):
 		x, y = self.map_region.Width / 2 + self.system_size.x / 2, self.map_region.Height / 2 + self.system_size.y / 2
@@ -121,10 +124,18 @@ class IntelMap:
 		x -= self.system_size.x/2
 		y -= self.system_size.y/2
 
-		dc.SetPen(wx.Pen(self.connection_color, self.connection_thickness))
-		dc.DrawLine(x + sys1_pos.x, y + sys1_pos.y, x +  + sys2_pos.x, y +  + sys2_pos.y)
+		if system1_data['regionID'] == system2_data['regionID']:
+			dc.SetPen(wx.Pen(self.connection_color, self.connection_thickness))
+		else:
+			dc.SetPen(wx.Pen(self.connection_color_regional, self.connection_thickness_regional))
+		dc.DrawLine(x + sys1_pos.x, y + sys1_pos.y, x + sys2_pos.x, y + sys2_pos.y)
 
-	def draw_system(self, dc, map_center, system_data):
+	def draw_system(self, dc, map_center, system_data, systems_drawn):
+		if system_data in systems_drawn:
+			return
+
+		systems_drawn.append(system_data)
+
 		x, y = self.map_region.Width / 2 + self.system_size.x / 2, self.map_region.Height / 2 + self.system_size.y / 2
 
 		x -= self.system_size.x
@@ -165,4 +176,5 @@ class IntelMap:
 		system_id = self.universe.system_name_to_id(system_name)
 		self.origin_system = self.universe.get_system_data(system_id)
 		self.range = range
+		self.current_sub_map = self.get_sub_map(self.origin_system, self.range, [], [])
 		self.redraw()
