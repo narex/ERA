@@ -151,7 +151,7 @@ class era(wx.Frame):
 		input_sizer.Add(self.loot_watch, proportion=0, flag=wx.ALIGN_CENTER_VERTICAL)
 
 		# Define regions we have systems for in a list
-		region_list = [ 'dek', 'fade' ] #, 'brn', 'ftn', 'tnl', 'tri', 'vnl', 'vale', 'cr' ]
+		region_list = [ 'dek', 'fade', 'vale' ] #, 'brn', 'ftn', 'tnl', 'tri', 'vnl', 'cr' ]
 		# Create text "Region" before the dropdown box
 		input_sizer.Add(wx.StaticText(self.panel, wx.ID_ANY, 'Region'), proportion=0, flag=wx.ALIGN_CENTER_VERTICAL | wx.LEFT, border=8)
 

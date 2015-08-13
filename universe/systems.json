@@ -3,820 +3,827 @@
 		"regionID": 10000003,
 		"solarSystemID": 30000208,
 		"solarSystemName": "LZ-6SU",
-		"x": -136.344899801984,
-		"z": 322.170710827008
+		"x": 5,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000209,
 		"solarSystemName": "MC6O-F",
-		"x": -132.8769937743146,
-		"z": 351.28294714692
+		"x": 5,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000210,
 		"solarSystemName": "U54-1L",
-		"x": -138.166671279076,
-		"z": 347.13210671675597
+		"x": 7,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000211,
 		"solarSystemName": "B-588R",
-		"x": -141.8443352048244,
-		"z": 312.667836413004
+		"x": 4,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000212,
 		"solarSystemName": "NCGR-Q",
-		"x": -133.8176820258856,
-		"z": 346.422408171372
+		"x": 6,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000213,
 		"solarSystemName": "G-LOIT",
-		"x": -129.8792920930876,
-		"z": 319.465604934374
+		"x": 5,
+		"z": -12
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000214,
 		"solarSystemName": "HE-V4V",
-		"x": -124.2082071645536,
-		"z": 337.494425774164
+		"x": 5,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000215,
 		"solarSystemName": "N-HSK0",
-		"x": -198.748389525738,
-		"z": 384.864839423616
+		"x": 2,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000216,
 		"solarSystemName": "05R-7A",
-		"x": -182.948099219444,
-		"z": 389.109994396872
+		"x": 3,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000217,
 		"solarSystemName": "7-UH4Z",
-		"x": -193.386085408998,
-		"z": 392.64627478952394
+		"x": 2,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000218,
 		"solarSystemName": "5ZO-NZ",
-		"x": -178.61716362334178,
-		"z": 383.861485705554
+		"x": 1,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000219,
 		"solarSystemName": "FS-RFL",
-		"x": -180.0814667971806,
-		"z": 382.38794235541195
+		"x": 3,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000220,
 		"solarSystemName": "Y0-BVN",
-		"x": -202.869920350554,
-		"z": 409.879145624946
+		"x": 2,
+		"z": -12
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000221,
 		"solarSystemName": "X97D-W",
-		"x": -187.38250125247342,
-		"z": 397.254327406456
+		"x": 3,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000222,
 		"solarSystemName": "0-R5TS",
-		"x": -134.4020937795236,
-		"z": 336.279577946608
+		"x": 7,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000223,
 		"solarSystemName": "H-UCD1",
-		"x": -115.0995189859272,
-		"z": 327.81080879376196
+		"x": 8,
+		"z": -12
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000224,
 		"solarSystemName": "7-K5EL",
-		"x": -106.5948043682474,
-		"z": 323.963393403696
+		"x": 8,
+		"z": -13
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000225,
 		"solarSystemName": "H-5GUI",
-		"x": -97.16715352616461,
-		"z": 298.868632924344
+		"x": 9,
+		"z": -13
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000226,
 		"solarSystemName": "FH-TTC",
-		"x": -69.9830463551158,
-		"z": 307.125201712256
+		"x": 10,
+		"z": -13
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000227,
 		"solarSystemName": "FMBR-8",
-		"x": -65.9283008206982,
-		"z": 313.019904804558
+		"x": 10,
+		"z": -12
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000228,
 		"solarSystemName": "3HX-DL",
-		"x": -194.46770107003962,
-		"z": 413.595668319136
+		"x": 1,
+		"z": -1
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000229,
 		"solarSystemName": "UH-9ZG",
-		"x": -205.72972563588,
-		"z": 410.194076745112
+		"x": 0,
+		"z": -3
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000230,
 		"solarSystemName": "NFM-0V",
-		"x": -189.3279263061112,
-		"z": 410.96813282778805
+		"x": 0,
+		"z": -2
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000231,
 		"solarSystemName": "YXIB-I",
-		"x": -201.26779434953798,
-		"z": 417.416687407466
+		"x": 1,
+		"z": -3
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000232,
 		"solarSystemName": "MY-T2P",
-		"x": -207.786444793104,
-		"z": 414.5477008002
+		"x": 0,
+		"z": -1
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000233,
 		"solarSystemName": "FA-DMO",
-		"x": -192.253545780221,
-		"z": 420.869423654164
+		"x": 1,
+		"z": 0
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000234,
 		"solarSystemName": "GEKJ-9",
-		"x": -218.91279472495802,
-		"z": 414.708403365046
+		"x": -1,
+		"z": -1
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000235,
 		"solarSystemName": "Q-R3GP",
-		"x": -186.8091247421518,
-		"z": 409.693459269858
+		"x": 2,
+		"z": -1
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000236,
 		"solarSystemName": "N-5QPW",
-		"x": -178.0222463181206,
-		"z": 423.263365122512
+		"x": 2,
+		"z": 0
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000237,
 		"solarSystemName": "XV-8JQ",
-		"x": -214.07648914297798,
-		"z": 429.3895434715
+		"x": 0,
+		"z": 0
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000238,
 		"solarSystemName": "WBR5-R",
-		"x": -139.7210514621404,
-		"z": 384.833322769484
+		"x": 5,
+		"z": -7
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000239,
 		"solarSystemName": "4GYV-Q",
-		"x": -146.7344927725104,
-		"z": 393.56302392057404
+		"x": 4,
+		"z": -6
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000240,
 		"solarSystemName": "4-HWWF",
-		"x": -159.38155804072258,
-		"z": 383.934642009882
+		"x": 3,
+		"z": -7
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000241,
 		"solarSystemName": "YMJG-4",
-		"x": -169.5087329340182,
-		"z": 380.26140689483594
+		"x": 2,
+		"z": -7
+	},
+	{
+		"regionID": 10000003,
+		"solarSystemID": 30000253,
+		"solarSystemName": "DAYP-G",
+		"x": 1,
+		"z": -7
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000242,
 		"solarSystemName": "8TPX-N",
-		"x": -147.5290008391276,
-		"z": 375.255908967144
+		"x": 4,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000243,
 		"solarSystemName": "PM-DWE",
-		"x": -146.65739320859558,
-		"z": 373.74775909494
+		"x": 4,
+		"z": -7
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000244,
 		"solarSystemName": "K8X-6B",
-		"x": -191.4517691674016,
-		"z": 386.819166239274
+		"x": 0,
+		"z": -5
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000245,
 		"solarSystemName": "X445-5",
-		"x": -206.54439141277402,
-		"z": 391.348412507748
+		"x": -1,
+		"z": -5
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000246,
 		"solarSystemName": "KRUN-N",
-		"x": -185.7273766580226,
-		"z": 376.107476596742
+		"x": 1,
+		"z": -6
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000247,
 		"solarSystemName": "9OO-LH",
-		"x": -205.854512163384,
-		"z": 403.891511072938
+		"x": 0,
+		"z": -4
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000248,
 		"solarSystemName": "V-OJEN",
-		"x": -182.9082693487706,
-		"z": 363.86103478969
+		"x": 2,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000249,
 		"solarSystemName": "EIDI-N",
-		"x": -177.37179967075718,
-		"z": 376.857961400054
+		"x": 0,
+		"z": -6
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000250,
 		"solarSystemName": "P3EN-E",
-		"x": -182.49076932333182,
-		"z": 348.064746597344
+		"x": 0,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000251,
 		"solarSystemName": "49-0LI",
-		"x": -189.706199721335,
-		"z": 367.897873803234
+		"x": 2,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000252,
 		"solarSystemName": "IPAY-2",
-		"x": -179.50483856773317,
-		"z": 364.04436695916
+		"x": 0,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000254,
 		"solarSystemName": "IFJ-EL",
-		"x": -188.98642231988518,
-		"z": 361.728849284368
+		"x": -2,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000255,
 		"solarSystemName": "47L-J4",
-		"x": -189.8071795507896,
-		"z": 356.000351664826
+		"x": -2,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000256,
 		"solarSystemName": "Q-L07F",
-		"x": -183.322399946975,
-		"z": 364.387607156802
+		"x": -1,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000257,
 		"solarSystemName": "E-D0VZ",
-		"x": -191.0112569818224,
-		"z": 363.875983865102
+		"x": -1,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000258,
 		"solarSystemName": "6WW-28",
-		"x": -173.1538355359126,
-		"z": 348.299194012618
+		"x": -2,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000259,
 		"solarSystemName": "A8A-JN",
-		"x": -211.615615247398,
-		"z": 361.064733649384
+		"x": -3,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000260,
 		"solarSystemName": "S-NJBB",
-		"x": -214.684413321,
-		"z": 361.82051536941196
+		"x": -3,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000261,
 		"solarSystemName": "T-GCGL",
-		"x": -136.7657398277844,
-		"z": 413.97507468593403
+		"x": 6,
+		"z": -4
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000262,
 		"solarSystemName": "0MV-4W",
-		"x": -132.89878470102738,
-		"z": 403.96387283935803
+		"x": 6,
+		"z": -5
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000263,
 		"solarSystemName": "TVN-FM",
-		"x": -143.185705771301,
-		"z": 404.092499631466
+		"x": 5,
+		"z": -5
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000264,
 		"solarSystemName": "V-NL3K",
-		"x": -128.1249385937262,
-		"z": 417.693098173472
+		"x": 7,
+		"z": -4
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000265,
 		"solarSystemName": "AZBR-2",
-		"x": -146.54412747490701,
-		"z": 420.10890413664197
+		"x": 5,
+		"z": -4
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000266,
 		"solarSystemName": "Z-8Q65",
-		"x": -149.71798106125402,
-		"z": 433.823033257894
+		"x": 5,
+		"z": -3
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000267,
 		"solarSystemName": "0J3L-V",
-		"x": -145.834296506434,
-		"z": 443.48346151507
+		"x": 5,
+		"z": -2
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000268,
 		"solarSystemName": "H-NOU5",
-		"x": -114.4407223376598,
-		"z": 316.17616085682596
+		"x": 5,
+		"z": -13
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000269,
 		"solarSystemName": "KX-2UI",
-		"x": -106.1490835478032,
-		"z": 331.96991829923
+		"x": 6,
+		"z": -13
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000270,
 		"solarSystemName": "MO-FIF",
-		"x": -95.392907162084,
-		"z": 325.52433587814005
+		"x": 6,
+		"z": -14
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000271,
 		"solarSystemName": "97-M96",
-		"x": -105.23557142151581,
-		"z": 339.81020829513
+		"x": 6,
+		"z": -12
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000272,
 		"solarSystemName": "MA-XAP",
-		"x": -101.4655351552852,
-		"z": 318.501860382044
+		"x": 6,
+		"z": -15
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000273,
 		"solarSystemName": "C-J7CR",
-		"x": -99.84047791910899,
-		"z": 307.94940193850204
+		"x": 6,
+		"z": -16
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000274,
 		"solarSystemName": "Q-EHMJ",
-		"x": -95.417787956728,
-		"z": 293.078808781698
+		"x": 9,
+		"z": -14
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000275,
 		"solarSystemName": "XSQ-TF",
-		"x": -76.37045097539539,
-		"z": 301.290589196502
+		"x": 10,
+		"z": -14
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000276,
 		"solarSystemName": "H-1EOH",
-		"x": -81.87348386728301,
-		"z": 290.399804917134
+		"x": 10,
+		"z": -15
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000277,
 		"solarSystemName": "IR-DYY",
-		"x": -71.5276934545056,
-		"z": 290.8767334043
+		"x": 10,
+		"z": -16
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000278,
 		"solarSystemName": "C-DHON",
-		"x": -55.026532796492,
-		"z": 274.26860445805
+		"x": 10,
+		"z": -17
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000279,
 		"solarSystemName": "F-D49D",
-		"x": -57.1345143352422,
-		"z": 289.62374777686796
+		"x": 11,
+		"z": -16
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000280,
 		"solarSystemName": "MQ-O27",
-		"x": -60.6719203227198,
-		"z": 310.869327227866
+		"x": 11,
+		"z": -13
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000281,
 		"solarSystemName": "H-EY0P",
-		"x": -47.1647866102804,
-		"z": 304.085566107784
+		"x": 12,
+		"z": -13
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000282,
 		"solarSystemName": "UNAG-6",
-		"x": -30.011820130518,
-		"z": 302.563085133136
+		"x": 13,
+		"z": -13
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000283,
 		"solarSystemName": "E-SCTX",
-		"x": -28.364385260905,
-		"z": 288.24343015948
+		"x": 13,
+		"z": -14
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000284,
 		"solarSystemName": "S6QX-N",
-		"x": -15.23675355405116,
-		"z": 285.11660142190203
+		"x": 13,
+		"z": -15
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000285,
 		"solarSystemName": "IT-YAU",
-		"x": -18.56762761265816,
-		"z": 281.202621446376
+		"x": 13,
+		"z": -16
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000286,
 		"solarSystemName": "1VK-6B",
-		"x": -1.727885239327228,
-		"z": 273.510350843678
+		"x": 15,
+		"z": -15
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000287,
 		"solarSystemName": "7-PO3P",
-		"x": -19.27321369106954,
-		"z": 295.49199571368996
+		"x": 14,
+		"z": -13
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000288,
 		"solarSystemName": "1W-0KS",
-		"x": -22.9522367907714,
-		"z": 275.93424931783
+		"x": 13,
+		"z": -17
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000289,
 		"solarSystemName": "669-IX",
-		"x": -122.21612510392099,
-		"z": 349.461837784648
+		"x": 7,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000290,
 		"solarSystemName": "0R-F2F",
-		"x": -107.2136975777336,
-		"z": 361.781053340512
+		"x": 8,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000291,
 		"solarSystemName": "R-P7KL",
-		"x": -111.5950053792202,
-		"z": 350.57410199380604
+		"x": 8,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000292,
 		"solarSystemName": "2DWM-2",
-		"x": -105.9581812009768,
-		"z": 339.160276625138
+		"x": 9,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000293,
 		"solarSystemName": "XF-PWO",
-		"x": -107.5251636319408,
-		"z": 359.48884209891
+		"x": 8,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000294,
 		"solarSystemName": "1N-FJ8",
-		"x": -100.0134296038276,
-		"z": 346.213297673752
+		"x": 9,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000295,
 		"solarSystemName": "VI2K-J",
-		"x": -51.2017175842992,
-		"z": 321.107590233554
+		"x": 10,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000296,
 		"solarSystemName": "ZLZ-1Z",
-		"x": -33.5300266344662,
-		"z": 336.28787644940405
+		"x": 11,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000297,
 		"solarSystemName": "6Y-WRK",
-		"x": -41.7099225537974,
-		"z": 347.42858691119
+		"x": 11,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000298,
 		"solarSystemName": "RVCZ-C",
-		"x": -35.4194809351554,
-		"z": 321.543349907894
+		"x": 11,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000299,
 		"solarSystemName": "5T-KM3",
-		"x": -37.3900038091392,
-		"z": 359.890260096744
+		"x": 11,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000300,
 		"solarSystemName": "LS9B-9",
-		"x": -27.6402379037956,
-		"z": 311.956607646782
+		"x": 12,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000301,
 		"solarSystemName": "1-GBBP",
-		"x": -115.249944061004,
-		"z": 419.58692243081
+		"x": 8,
+		"z": -4
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000302,
 		"solarSystemName": "C-FP70",
-		"x": -105.1261827361776,
-		"z": 429.113927242784
+		"x": 9,
+		"z": -3
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000303,
 		"solarSystemName": "T-ZWA1",
-		"x": -97.598653596636,
-		"z": 420.624382406074
+		"x": 9,
+		"z": -4
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000304,
 		"solarSystemName": "ZA0L-U",
-		"x": -120.924052646234,
-		"z": 445.54908243431396
+		"x": 8,
+		"z": -2
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000305,
 		"solarSystemName": "G96R-F",
-		"x": -121.02324476678221,
-		"z": 455.931450999256
+		"x": 8,
+		"z": -1
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000306,
 		"solarSystemName": "Y-ZXIO",
-		"x": -112.3619989062712,
-		"z": 453.37942599724
+		"x": 9,
+		"z": -1
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000307,
 		"solarSystemName": "B-E3KQ",
-		"x": -21.0656737237522,
-		"z": 354.64922594344
+		"x": 12,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000308,
 		"solarSystemName": "Y5J-EU",
-		"x": -16.28951205462824,
-		"z": 362.697037361144
+		"x": 13,
+		"z": -7
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000309,
 		"solarSystemName": "O-LR1H",
-		"x": -15.11636273169288,
-		"z": 348.72886223294796
+		"x": 13,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000310,
 		"solarSystemName": "G5ED-Y",
-		"x": -1.608701396682788,
-		"z": 355.42963832630005
+		"x": 14,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000311,
 		"solarSystemName": "BR-6XP",
-		"x": 4.77103809773752,
-		"z": 339.04659890906
+		"x": 16,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000312,
 		"solarSystemName": "8-TFDX",
-		"x": 7.97705527916888,
-		"z": 350.84283222998596
+		"x": 15,
+		"z": -7
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000313,
 		"solarSystemName": "UL-4ZW",
-		"x": 15.00700347390636,
-		"z": 345.36314255565
+		"x": 15,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000314,
 		"solarSystemName": "A-QRQT",
-		"x": 0.714718891501026,
-		"z": 335.598747596686
+		"x": 17,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000315,
 		"solarSystemName": "WMBZ-U",
-		"x": 9.61177754884392,
-		"z": 333.747328099966
+		"x": 18,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000316,
 		"solarSystemName": "PX5-LR",
-		"x": 20.2786346777112,
-		"z": 324.30884064950794
+		"x": 19,
+		"z": -8
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000317,
 		"solarSystemName": "A3-RQ3",
-		"x": 31.6337819808926,
-		"z": 319.14817249237194
+		"x": 19,
+		"z": -9
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000318,
 		"solarSystemName": "9-GBPD",
-		"x": 35.8784182980938,
-		"z": 311.727251157032
+		"x": 19,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000319,
 		"solarSystemName": "LS-JEP",
-		"x": 43.6657354488734,
-		"z": 307.22322409686797
+		"x": 20,
+		"z": -10
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000320,
 		"solarSystemName": "R-RSZZ",
-		"x": 11.8189144240883,
-		"z": 345.039471522806
+		"x": 15,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000321,
 		"solarSystemName": "MGAM-4",
-		"x": 14.3623015897415,
-		"z": 332.062702622102
+		"x": 16,
+		"z": -12
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000322,
 		"solarSystemName": "VORM-W",
-		"x": 11.4480383000883,
-		"z": 336.832546614838
+		"x": 16,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000323,
 		"solarSystemName": "7G-H7D",
-		"x": 4.28775055162416,
-		"z": 331.344587864578
+		"x": 15,
+		"z": -12
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000324,
 		"solarSystemName": "Q3-BAY",
-		"x": 27.6502192810834,
-		"z": 327.26931677811
+		"x": 17,
+		"z": -11
 	},
 	{
 		"regionID": 10000003,
 		"solarSystemID": 30000325,
 		"solarSystemName": "JZV-F4",
-		"x": 25.6887397886996,
-		"z": 334.137710855102
+		"x": 17,
+		"z": -10
 	},
 	{
 		"regionID": 10000010,
